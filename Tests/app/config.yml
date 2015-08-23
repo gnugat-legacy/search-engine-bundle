@@ -20,3 +20,8 @@ services:
                         },
                         "relations": ["author"]
                     }
+
+    app.dummy_filtering_builder_strategy:
+        class: Gnugat\SearchEngineBundle\Tests\Fixtures\DummyFilteringBuilderStrategy
+        tags:
+            - { name: gnugat_search_engine.filtering_builder_strategy }

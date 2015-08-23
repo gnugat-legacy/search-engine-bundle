@@ -11,6 +11,7 @@
 
 namespace Gnugat\SearchEngineBundle;
 
+use Gnugat\SearchEngineBundle\DependencyInjection\FilteringBuilderStrategyCompilerPass;
 use Gnugat\SearchEngineBundle\DependencyInjection\SelectBuilderCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
@@ -22,6 +23,7 @@ class GnugatSearchEngineBundle extends Bundle
      */
     public function build(ContainerBuilder $container)
     {
+        $container->addCompilerPass(new FilteringBuilderStrategyCompilerPass());
         $container->addCompilerPass(new SelectBuilderCompilerPass());
     }
 }
