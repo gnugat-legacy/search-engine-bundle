@@ -53,4 +53,20 @@ class ServiceTest extends PHPUnit_Framework_TestCase
 
         self::assertInstanceOf('Gnugat\SearchEngine\IdentifierEngine', $identifierEngine);
     }
+
+    /**
+     * @test
+     */
+    public function it_collects_select_builder_tags()
+    {
+        $criteriaFactory = $this->container->get('gnugat_search_engine.criteria_factory');
+        $searchEngine = $this->container->get('gnugat_search_engine.search_engine');
+
+        try {
+            $searchEngine->match($criteriaFactory->fromQueryParameters('blog', array()));
+        } catch (\Excetpion $e) {
+            self::fail();
+        }
+        self::assertTrue(true);
+    }
 }

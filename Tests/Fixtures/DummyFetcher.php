@@ -20,6 +20,7 @@ class DummyFetcher implements Fetcher
      */
     public function fetchAll($sql, array $parameters)
     {
+        return array();
     }
 
     /**
@@ -27,5 +28,6 @@ class DummyFetcher implements Fetcher
      */
     public function fetchFirst($sql, array $parameters)
     {
+        return null;
     }
 }
