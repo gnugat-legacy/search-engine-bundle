@@ -1,0 +1,6 @@
+framework:
+    secret: "Three can keep a secret, if two of them are dead."
+
+services:
+    gnugat_search_engine.fetcher:
+        class: Gnugat\SearchEngineBundle\Tests\Fixtures\DummyFetcher
