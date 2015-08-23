@@ -1,5 +1,11 @@
 # Changes between versions
 
+## 0.2.0: FilteringBuilderStrategy tag
+
+* added support of a `gnugat_search_engine.filtering_builder_strategy` tag to be able to register `FilteringBuilderStrategies`
+
+Works with SearchEngine v0.2
+
 ## 0.1.0: Proof Of Concept
 
 * defined the following services:

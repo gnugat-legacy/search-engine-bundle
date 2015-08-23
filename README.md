@@ -79,7 +79,7 @@ class BlogController extends Controller
 
 To install `gnugat/search-engine-bundle`, run the following command:
 
-    composer require gnugat/search-engine-bundle:^0.1
+    composer require gnugat/search-engine-bundle:^0.2
 
 Then register `Gnugat\SearchEngineBundle\GnugatSearchEngineBundle` in `AppKernel.php`
 
