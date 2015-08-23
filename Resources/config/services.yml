@@ -1,0 +1,16 @@
+services:
+    gnugat_search_engine.criteria_factory:
+        class: Gnugat\SearchEngine\CriteriaFactory
+        factory: ["Gnugat\\SearchEngine\\Build", criteriaFactory]
+
+    gnugat_search_engine.identifier_engine:
+        class: Gnugat\SearchEngine\IdentifierEngine
+        factory: ["Gnugat\\SearchEngine\\Build", identifierEngine]
+        arguments:
+            - "@gnugat_search_engine.fetcher"
+
+    gnugat_search_engine.search_engine:
+        class: Gnugat\SearchEngine\SearchEngine
+        factory: ["Gnugat\\SearchEngine\\Build", searchEngine]
+        arguments:
+            - "@gnugat_search_engine.fetcher"

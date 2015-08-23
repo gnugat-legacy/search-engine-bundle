@@ -8,8 +8,8 @@ A [gnugat/search-engine](http://gnugat.github.io/search-engine/) integration in 
 This bundle provides the following services:
 
 * `gnugat_search_engine.criteria_factory`: creates `Criteria` from Request query parameters
-* `gnugat_search_engine.search_engine`: an instance of `SearchEngine`
 * `gnugat_search_engine.identifier_engine`: an instance of `IdentifierEngine`
+* `gnugat_search_engine.search_engine`: an instance of `SearchEngine`
 
 In order for it to work, you need to:
 
@@ -24,20 +24,24 @@ services:
     app.blog_select_builder:
         class: AppBundle\SearchEngine\BlogSelectBuilder
         tags:
-            - { name: gnugat_search_engine.select_builder, resource_name: my_table, resource_definition: {
-                fields: {
-                    id: integer
-                    title: string
-                    author_id: integer
-                }
-                relations:
-                    - author
-            } }
+            -
+                name: gnugat_search_engine.select_builder
+                resource_name: blog
+                resource_definition: |
+                    {
+                        "fields": {
+                            "id": "integer",
+                            "title": "string",
+                            "author_id": "integer"
+                        },
+                        "relations": ["author"]
+                    }
 ```
 
 We can finally use it, for example in a controller:
 
 ```php
+<?php
 
 namespace AppBundle\Controller;
 
@@ -60,8 +64,8 @@ class BlogController extends Controller
         $criteriaFactory = $this->container->get('gnugat_search_engine.criteria_factory');
         $searchEngine = $this->container->get('gnugat_search_engine.search_engine');
 
-        $criteria = $criteriaFactory->fromQueryParameters($request->query->all());
-        $results = $searchEngine->match('blog', $criteria);
+        $criteria = $criteriaFactory->fromQueryParameters('blog', $request->query->all());
+        $results = $searchEngine->match($criteria);
 
         return new Response(json_encode($results), 200, array('Content-Type' => 'application/json'));
     }

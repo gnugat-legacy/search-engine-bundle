@@ -1,0 +1,22 @@
+framework:
+    secret: "Three can keep a secret, if two of them are dead."
+
+services:
+    gnugat_search_engine.fetcher:
+        class: Gnugat\SearchEngineBundle\Tests\Fixtures\DummyFetcher
+
+    app.blog_select_builder:
+        class: Gnugat\SearchEngineBundle\Tests\Fixtures\BlogSelectBuilder
+        tags:
+            -
+                name: gnugat_search_engine.select_builder
+                resource_name: blog
+                resource_definition: |
+                    {
+                        "fields": {
+                            "id": "integer",
+                            "title": "string",
+                            "author_id": "integer"
+                        },
+                        "relations": ["author"]
+                    }
