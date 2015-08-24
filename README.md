@@ -10,6 +10,7 @@ This bundle provides the following services:
 * `gnugat_search_engine.criteria_factory`: creates `Criteria` from Request query parameters
 * `gnugat_search_engine.identifier_engine`: an instance of `IdentifierEngine`
 * `gnugat_search_engine.search_engine`: an instance of `SearchEngine`
+* `gnugat_search_engine.type_sanitizer`: an instance of `TypeSanitizer`
 
 In order for it to work, you need to:
 

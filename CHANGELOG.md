@@ -1,4 +1,9 @@
 # Changes between versions
+use Gnugat\SearchEngine\Builder\FilteringBuilderStrategy;
+
+## 0.3.0: TypeSanitizer service
+
+* defined `gnugat_search_engine.type_sanitizer` service: an instance of `TypeSanitizer`
 
 ## 0.2.0: FilteringBuilderStrategy tag
 
