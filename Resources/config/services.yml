@@ -2,6 +2,9 @@ services:
     gnugat_search_engine.build:
         class: Gnugat\SearchEngine\Build
 
+    gnugat_search_engine.type_sanitizer:
+        class: Gnugat\SearchEngine\Service\TypeSanitizer
+
     gnugat_search_engine.criteria_factory:
         class: Gnugat\SearchEngine\CriteriaFactory
         factory: ["@gnugat_search_engine.build", criteriaFactory]

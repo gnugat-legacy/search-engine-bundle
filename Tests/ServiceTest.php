@@ -37,6 +37,16 @@ class ServiceTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function it_has_type_sanitizer()
+    {
+        $typeSanitizer = $this->container->get('gnugat_search_engine.type_sanitizer');
+
+        self::assertInstanceOf('Gnugat\SearchEngine\Service\TypeSanitizer', $typeSanitizer);
+    }
+
+    /**
+     * @test
+     */
     public function it_has_search_engine()
     {
         $searchEngine = $this->container->get('gnugat_search_engine.search_engine');
