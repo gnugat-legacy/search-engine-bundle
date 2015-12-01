@@ -1,5 +1,9 @@
 # Changes between versions
-use Gnugat\SearchEngine\Builder\FilteringBuilderStrategy;
+
+## 0.3.1: Updated dependencies
+
+* added support to Symfony 3
+* added support to PHPUnit 5
 
 ## 0.3.0: TypeSanitizer service
 
